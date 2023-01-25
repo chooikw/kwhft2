@@ -131,13 +131,10 @@ class _AllTradesWidgetState extends State<AllTradesWidget> {
                                 itemsItem,
                                 r'''$.attributes.profits''',
                               ),
-                              closedDate: valueOrDefault<String>(
-                                getJsonField(
-                                  itemsItem,
-                                  r'''$.attributes.closedAt''',
-                                ).toString(),
-                                '-',
-                              ),
+                              closedDate: getJsonField(
+                                itemsItem,
+                                r'''$.attributes.closedAt''',
+                              ).toString(),
                               percentage: getJsonField(
                                 itemsItem,
                                 r'''$.attributes.profitPercentage''',

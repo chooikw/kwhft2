@@ -9,7 +9,7 @@ import 'lat_lng.dart';
 import 'place.dart';
 
 String? formatDate(String? dateStr) {
-  if (dateStr != null) {
+  if (dateStr != null && dateStr != "") {
     return DateFormat("d MMM HH:mm a").format(DateTime.parse(dateStr));
   }
   return "";
