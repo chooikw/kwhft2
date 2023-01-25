@@ -425,21 +425,33 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           OpenTxWidget(
-                                            bot: getJsonField(
-                                              openTradesItem,
-                                              r'''$.attributes.bot.data.attributes.label''',
-                                            ).toString(),
-                                            portfolio: getJsonField(
-                                              openTradesItem,
-                                              r'''$.attributes.bot.data.attributes.portfolio.data.attributes.label''',
-                                            ).toString(),
-                                            date: getJsonField(
-                                              openTradesItem,
-                                              r'''$.attributes.createdAt''',
-                                            ).toString(),
-                                            size: getJsonField(
-                                              openTradesItem,
-                                              r'''$.attributes.orderSize''',
+                                            bot: valueOrDefault<String>(
+                                              getJsonField(
+                                                openTradesItem,
+                                                r'''$.attributes.bot.data.attributes.label''',
+                                              ).toString(),
+                                              '-',
+                                            ),
+                                            portfolio: valueOrDefault<String>(
+                                              getJsonField(
+                                                openTradesItem,
+                                                r'''$.attributes.bot.data.attributes.portfolio.data.attributes.label''',
+                                              ).toString(),
+                                              '-',
+                                            ),
+                                            date: valueOrDefault<String>(
+                                              getJsonField(
+                                                openTradesItem,
+                                                r'''$.attributes.createdAt''',
+                                              ).toString(),
+                                              '-',
+                                            ),
+                                            size: valueOrDefault<double>(
+                                              getJsonField(
+                                                openTradesItem,
+                                                r'''$.attributes.bot.data.attributes.orderSize''',
+                                              ),
+                                              0.0,
                                             ),
                                           ),
                                           Divider(
